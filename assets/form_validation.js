@@ -1,126 +1,73 @@
 function formValidation() {
-  var uname = document.registration.username;
-  var upass = document.registration.pass;
-  var ufname = document.registration.firstname;
-  var ulname = document.registration.lastname;
-  var uemail = document.registration.email;
-  var uadd = document.registration.address;
-  var ucountry = document.registration.country;
-  var uzip = document.registration.zip;
-  var uphone = document.registration.pnum;
-  var ueducation = document.registration.edlevel;
+  const form = document.forms.registration;
 
-  if (allLetter(ufname)) {
-    if (allLetter(ulname)) {
-      if (ValidateEmail(uemail)) {
-        if (phoneValidation(uphone)) {
-          if (educationValidation(ueducation)) {
-            if (alphanumeric(uadd)) {
-              if (countryselect(ucountry)) {
-                if (allnumeric(uzip)) {
-                  alert("Form Successfully Validated");
-                  window.location.href = "/public/about.html";
-                  return false;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  return false;
-}
+  // helper
+  const get = (name) => form?.elements?.[name] || null;
+  const labelOf = (el, fallback) =>
+    (el && el.labels && el.labels[0] && el.labels[0].innerText) ||
+    fallback ||
+    el?.name ||
+    "This field";
 
-function username_validation(uname, min, max) {
-  var uname_len = uname.value.length;
-  if (uname_len == 0 || uname_len >= max || uname_len < min) {
+  // map field (รองรับหลายชื่อ เผื่อ HTML ใช้คนละชื่อ)
+  const ufname = get("firstname") || get("fname");
+  const ulname = get("lastname") || get("lname");
+  const uemail = get("email");
+  const uadd = get("address");
+  const ucountry = get("country");
+  const uzip = get("zip");
+  const uphone = get("pnum") || get("phone"); // ☜ ถ้ามีค่อยเช็ค
+  const ueducation = get("edlev") || get("education"); // ☜ ถ้ามีค่อยเช็ค
+
+  // ตรวจทีละเงื่อนไข เฉพาะฟิลด์ที่มีจริง
+  if (ufname && !/^[A-Za-z]+$/.test(ufname.value.trim())) {
     alert(
-      "Username should not be empty / length be between " + min + " to " + max
+      labelOf(ufname, "First name") + " must have alphabet characters only"
     );
-    uname.focus();
+    ufname.focus();
     return false;
   }
-  return true;
-}
-function pass_validation(upass, min, max) {
-  var upass_len = upass.value.length;
-  if (upass_len == 0 || upass_len >= max || upass_len < min) {
-    alert(
-      "Password should not be empty / length be between " + min + " to " + max
-    );
-    upass.focus();
+  if (ulname && !/^[A-Za-z]+$/.test(ulname.value.trim())) {
+    alert(labelOf(ulname, "Last name") + " must have alphabet characters only");
+    ulname.focus();
     return false;
   }
-  return true;
-}
-function allLetter(inputtxt) {
-  var letters = /^[A-Za-z]+$/;
-  if (inputtxt.value.match(letters)) {
-    return true;
-  } else {
-    alert(inputtxt.labels[0].innerHTML + " must have alphabet characters only");
-    inputtxt.focus();
-    return false;
-  }
-}
-function alphanumeric(inputtxt) {
-  var letterNumber = /^[0-9a-zA-Z\s]+$/;
-  if (inputtxt.value.match(letterNumber)) {
-    return true;
-  } else {
-    alert("Address must have alphanumeric characters only");
-    inputtxt.focus();
-    return false;
-  }
-}
-function countryselect(ucountry) {
-  if (ucountry.value == "") {
-    alert("Select your country from the list");
-    ucountry.focus();
-    return false;
-  } else {
-    return true;
-  }
-}
-function allnumeric(inputtxt) {
-  var numbers = /^[0-9]+$/;
-  if (inputtxt.value.match(numbers)) {
-    return true;
-  } else {
-    alert(inputtxt.labels[0].innerHTML + " must have numeric characters only");
-    inputtxt.focus();
-    return false;
-  }
-}
-
-function ValidateEmail(uemail) {
-  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
-  if (uemail.value.match(mailformat)) {
-    return true;
-  } else {
+  if (
+    uemail &&
+    !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/.test(uemail.value.trim())
+  ) {
     alert("You have entered an invalid email address!");
+    uemail.focus();
     return false;
   }
-}
-
-function phoneValidation(uphone) {
-  var phoneno = /^\d{10}$/;
-  if (uphone.value.match(phoneno)) {
-    return true;
-  } else {
+  if (uphone && !/^\d{10}$/.test(uphone.value.trim())) {
     alert("Phone number must be exactly 10 digits");
     uphone.focus();
     return false;
   }
-}
-
-function educationValidation(ueducation) {
-  if (ueducation.value == "") {
+  if (uadd && !/^[0-9a-zA-Z\s]+$/.test(uadd.value.trim())) {
+    alert("Address must have alphanumeric characters only");
+    uadd.focus();
+    return false;
+  }
+  if (ueducation && !ueducation.value) {
     alert("Select your education level from the list");
     ueducation.focus();
     return false;
-  } else {
-    return true;
   }
+  if (ucountry && !ucountry.value) {
+    alert("Select your country from the list");
+    ucountry.focus();
+    return false;
+  }
+  if (uzip && !/^[0-9]+$/.test(uzip.value.trim())) {
+    alert(labelOf(uzip, "ZIP Code") + " must have numeric characters only");
+    uzip.focus();
+    return false;
+  }
+
+  // ผ่านหมด
+  alert("Form Successfully Validated");
+  window.location.href = "/index.html";
+  return false; // กันไม่ให้ส่งฟอร์มซ้ำ
 }
