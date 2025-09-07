@@ -183,23 +183,25 @@ input[type=submit]:hover {
 }
 
 footer {
+    position: fixed;
+    bottom: 0;
     background-color: #222;
     color: #fff;
     padding: 20px 0;
     text-align: center;
-    
+    width: 100%;
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+    margin-top: 60px;
 }
 
-.fbot {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+/* .fbot {
+    
     background-color: #222;
     color: white;
     text-align: center;
     padding: 10px 0;
-}
+} */
 
 .form-box {
     margin-left: 40px;
