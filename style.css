@@ -40,6 +40,12 @@ h1 {
     margin-top: 20px;
 }
 
+.abouttite {
+    text-align: center;
+    color: #333333;
+    margin-top: 20px;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -192,26 +198,26 @@ input[type=submit]:hover {
     margin-bottom: 16px;
 }
 
+html, body { height: 100%; }
+body {
+    margin: 0;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+}
+main { flex: 1 1 auto; }
+
 footer {
-    position: fixed;
-    bottom: 0;
+    position: static;
+    margin-top: auto;
+
+    width: 100%;
     background-color: #222;
     color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    width: 100%;
-    z-index: 1000;
-    font-family: Arial, sans-serif;
-    margin-top: 60px;
-}
-
-/* .fbot {
-    
-    background-color: #222;
-    color: white;
-    text-align: center;
     padding: 10px 0;
-} */
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
 
 .form-box {
     margin-left: 40px;
@@ -243,10 +249,11 @@ header {
     background: linear-gradient(0deg, transparent, rgba(255, 255, 255, .03))
 }
 
-.container {
+.container-course {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 24px 16px
+    padding: 24px 16px;
+    margin-bottom: 30px;
 }
 
 h1 {
@@ -354,3 +361,11 @@ p.lead {
 }
 
 .hidden { display: none !important; }
+
+.regisform {
+    color: #333333;
+}
+
+.form-box {
+    color: #333333;
+}

@@ -32,28 +32,6 @@ function formValidation() {
   return false;
 }
 
-function username_validation(uname, min, max) {
-  var uname_len = uname.value.length;
-  if (uname_len == 0 || uname_len >= max || uname_len < min) {
-    alert(
-      "Username should not be empty / length be between " + min + " to " + max
-    );
-    uname.focus();
-    return false;
-  }
-  return true;
-}
-function pass_validation(upass, min, max) {
-  var upass_len = upass.value.length;
-  if (upass_len == 0 || upass_len >= max || upass_len < min) {
-    alert(
-      "Password should not be empty / length be between " + min + " to " + max
-    );
-    upass.focus();
-    return false;
-  }
-  return true;
-}
 function allLetter(inputtxt) {
   var letters = /^[A-Za-z]+$/;
   if (inputtxt.value.match(letters)) {
