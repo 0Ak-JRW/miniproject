@@ -143,6 +143,7 @@ h2 {
 .address {
     margin-top: 10px;
     margin-left: 20px;
+    color: #000000;
 }
 
 .company-logo {
@@ -163,7 +164,7 @@ select,
 textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
     border-radius: 10px;
     box-sizing: border-box;
     margin-top: 6px;
