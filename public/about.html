@@ -10,16 +10,38 @@
 
 <body>
     <div id="navbar"></div>
-    <h1>About Company</h1>
-    <p>
-        Pixelnetwork Company.<br>
-        
-    </p>
+    <section id="container">
+        <h1>About Company</h1>
+        <div>
+            <img src="/public/images/unnamed.webp" alt="Company Logo" class="company-logo">
+        </div>
+        <h2>Pixelnetwork Co., Ltd.</h2>
+        <p class="address">Address : 9/1 หมู่ 5 ถนนพหลโยธิน ตำบลคลองหนึ่ง อำเภอคลองหลวง จังหวัดปทุมธานี 12120</p>
+        <div class="contact">
+            <div class="contact info">
+                <p>Name : Sitthisak Putthimit</p>
+                <p>Phone Number : 0918429331</p>
+                <p>Email : sitthisak.putt@bumail.net</p>
+            </div>
+            <div class="contact info">
+                <p>Name : Thanakorn Rueanpheng</p>
+                <p>Phone Number : 0614686333</p>
+                <p>Email : thanakorn.ruea@bumail.net</p>
+            </div>
+            <div class="contact info">
+                <p>Name : Jeerawat Rueanduangchan</p>
+                <p>Phone Number : 0800651937</p>
+                <p>Email : jeerawat.ruen@bumail.net</p>
+            </div>
+        </div>
+    </section>
+    <div id="footer" class="fbot"></div>
 </body>
 
 <script src="/assets/include.js"></script>
 <script>
     include("#navbar", "/partials/navbar.html");
+    include("#footer", "/partials/footer.html");
 </script>
 
 </html>

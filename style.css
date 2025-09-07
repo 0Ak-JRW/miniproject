@@ -1,8 +1,15 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #fafafa;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+}
+
+#container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
 }
 
 ul {
@@ -13,9 +20,6 @@ ul {
     background-color: #333333;
     display: flex;
     justify-content: center;
-    /* position: fixed;
-    top: 0;
-    width: 100%; */
 }
 
 ul li a {
@@ -34,4 +38,91 @@ h1 {
     text-align: center;
     color: #333333;
     margin-top: 20px;
+}
+
+h2 {
+    color: #333333;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.contact {
+    font: 16px Arial, sans-serif;
+    margin-top: 20px;
+    color: #333333;
+}
+
+.contact.info {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.address {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.company-logo {
+    display: block;
+    margin: 20px auto;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: #111111 3px 3px 6px;
+}
+
+* {
+    box-sizing: border-box;
+}
+input[type=text],
+input[type=password],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    
+}
+
+.fbot {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
 }
