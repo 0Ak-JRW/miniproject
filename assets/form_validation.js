@@ -1,7 +1,6 @@
 function formValidation() {
   const form = document.forms.registration;
 
-  // helper
   const get = (name) => form?.elements?.[name] || null;
   const labelOf = (el, fallback) =>
     (el && el.labels && el.labels[0] && el.labels[0].innerText) ||
@@ -9,15 +8,14 @@ function formValidation() {
     el?.name ||
     "This field";
 
-  // map field (รองรับหลายชื่อ เผื่อ HTML ใช้คนละชื่อ)
   const ufname = get("firstname") || get("fname");
   const ulname = get("lastname") || get("lname");
   const uemail = get("email");
   const uadd = get("address");
   const ucountry = get("country");
   const uzip = get("zip");
-  const uphone = get("pnum") || get("phone"); // ☜ ถ้ามีค่อยเช็ค
-  const ueducation = get("edlev") || get("education"); // ☜ ถ้ามีค่อยเช็ค
+  const uphone = get("pnum") || get("phone");
+  const ueducation = get("edlev") || get("education");
 
   // ตรวจทีละเงื่อนไข เฉพาะฟิลด์ที่มีจริง
   if (ufname && !/^[A-Za-z]+$/.test(ufname.value.trim())) {
@@ -66,8 +64,8 @@ function formValidation() {
     return false;
   }
 
-  // ผ่านหมด
+
   alert("Form Successfully Validated");
   window.location.href = "/index.html";
-  return false; // กันไม่ให้ส่งฟอร์มซ้ำ
+  return false;
 }
