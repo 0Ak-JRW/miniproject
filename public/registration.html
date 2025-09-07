@@ -7,16 +7,22 @@
 </head>
 
 <body>
-    <div class="container">
+    <section id="container">
         <h3 class="regisform">Registration Form</h3>
-        <form class="form-box" name="registration" onSubmit="return formValidation();">
+        <form name="registration" onSubmit="return formValidation();" class="form-box">
+            <!-- <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Your username..">
+            <label for="pass">Password</label> -->
+            <!-- <input type="password" id="pass" name="pass"> -->
             <label for="fname">First Name</label>
             <input type="text" id="fname" name="firstname">
             <label for="lname">Last Name</label>
             <input type="text" id="lname" name="lastname">
-            <label for="lname">Email</label>
+            <label for="email">Email</label>
             <input type="text" id="email" name="email">
-            <label for="lname">Address</label>
+            <label for="pnum">Phone Number</label>
+            <input type="text" id="pnum" name="pnum">
+            <label for="address">Address</label>
             <input type="text" id="address" name="address">
             <label for="country">Country</label>
             <select id="country" name="country">
@@ -28,6 +34,14 @@
             </select>
             <label for="zip">ZIP Code</label>
             <input type="text" id="zip" name="zip">
+            <label for="edlev">Education Level</label>
+            <select id="edlev" name="edlev">
+                <option selected value="">(Please select a level)</option>
+                <option value="SHS">Senior High School </option>
+                <option value="BACH">Bachelor's degree</option>
+                <option value="MAS">Master's degree</option>
+                <option value="DOC">Doctor's degree</option>
+            </select>
             <label>Language</label>
             <div class="form-control">
                 <input type="checkbox" id="language1" name="language" value="en" required>
@@ -49,8 +63,8 @@
 
             <input type="submit" value="Submit">
         </form>
-    </div>
-    <script src="form_validation.js"></script>
+    </section>
+    <script src="/assets/form_validation.js"></script>
 </body>
 
 </html>
