@@ -17,7 +17,6 @@ function formValidation() {
   const uphone = get("pnum") || get("phone");
   const ueducation = get("edlev") || get("education");
 
-  // ตรวจทีละเงื่อนไข เฉพาะฟิลด์ที่มีจริง
   if (ufname && !/^[A-Za-z]+$/.test(ufname.value.trim())) {
     alert(
       labelOf(ufname, "First name") + " must have alphabet characters only"
